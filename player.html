@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Hérisson 🦔</title>
+<style>
+body {
+  background: #111;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  padding: 35px 10px;
+}
+</style>
+</head>
+<body>
+<h2>🦔 Surprise !</h2>
+<p>Lecture en cours...</p>
+<audio id="song" src="herisson-meme-song.mp3" preload="auto"></audio>
+<script>
+const song = document.getElementById("song");
+song.volume = 1;
+
+song.play().catch(() => {
+  document.body.innerHTML = "<h2>🦔</h2><p>Clique pour lancer le son.</p>";
+  document.body.onclick = () => song.play();
+});
+
+song.addEventListener("ended", () => window.close());
+</script>
+</body>
+</html>
